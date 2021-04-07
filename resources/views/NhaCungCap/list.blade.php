@@ -11,7 +11,7 @@
         <div class="content">
             <div class="row">
                 <div class="col-sm-4 col-3">
-                    <h4 class="page-title">Đơn vị bảo trì</h4>
+                    <h4 class="page-title">Nhà cung cấp</h4>
 
                 </div>
 
@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-sm-4 col-4 text-right m-b-10">
                     <a href="{{ route('get_them_nha_cung_cap') }}" class="btn btn-rounded float-right"
-                        style="background-color: #009efb; color: white"><i class="fa fa-plus"></i> Thêm Đơn vị bảo trì</a>
+                        style="background-color: #009efb; color: white"><i class="fa fa-plus"></i> Thêm nhà cung cấp</a>
                 </div>
             </div>
             <form action="{{ route('search_nha_cung_cap') }}" method="get">
