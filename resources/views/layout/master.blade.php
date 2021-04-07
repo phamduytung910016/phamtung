@@ -31,7 +31,7 @@
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <span class="badge badge-pill bg-danger float-right">3</span></a>
                     <div class="dropdown-menu notifications">
                         <div class="topnav-dropdown-header">
-                            <span>Notifications</span>
+                            <span>Thông báo</span>
                         </div>
                         <div class="drop-scroll">
                             <ul class="notification-list">
