@@ -141,7 +141,7 @@
 							<a href=""><i class="fa fa-university"></i> <span> Nhà cung cấp  </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="{{route('list_nha_cung_cap')}}">Danh sách nhà cung cấp</a></li>
-								<li><a href="">Đơn vị bảo trì</a></li>
+								<li><a href="{{route('list_don_vi_bao_tri')}}">Đơn vị bảo trì</a></li>
 							</ul>
 						</li>
                     </ul>

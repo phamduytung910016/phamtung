@@ -3,22 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\DonViBaoTriModel;
+use App\Models\NhaCungCapModel;
 use Illuminate\Http\Request;
 
 class DonViBaoTriController extends Controller
 {
     protected $donViBaoTri;
+    protected $nhaCungCap;
 
-    public function __construct(DonViBaoTriModel $donViBaoTri)
+    public function __construct(DonViBaoTriModel $donViBaoTri, NhaCungCapModel $nhaCungCap)
     {
-        return $this->donViBaoTri = $donViBaoTri;
+        $this->donViBaoTri = $donViBaoTri;
+        $this->nhaCungCap = $nhaCungCap;
     }
 
 
     public function index()
     {
-        $data = $this->donViBaoTri->first();
-        dd($data->nhaCungCap);
+        $data = $this->donViBaoTri->all();
+
+        return view('DonViBaoTri.list', compact('data'));
     }
 
 
@@ -29,6 +33,8 @@ class DonViBaoTriController extends Controller
 
     public function getAdd()
     {
+        $nhaCungCaps = $this->nhaCungCap->all();
+        return view('DonViBaoTri.add', compact('nhaCungCaps'));
     }
 
 
