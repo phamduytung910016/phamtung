@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DemoMailController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\DonViBaoTriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KhoaPhongController;
 use App\Http\Controllers\MailController;
@@ -87,6 +88,17 @@ Route::middleware('AdminLogInMiddle')->group(function () {
             Route::get('/delete/{id}', [NhaCungCapController::class, 'delete']);
             Route::get('/get-edit/{id}', [NhaCungCapController::class, 'getEdit']);
             Route::post('/post-edit/{id}', [NhaCungCapController::class, 'postEdit']);
+        });
+
+        //Quản lý đơn vị bảo trì
+        Route::prefix('donvibaotri')->group(function () {
+            Route::get('/', [DonViBaoTriController::class, 'index'])->name('list_don_vi_bao_tri');
+            Route::get('/search', [DonViBaoTriController::class, 'search'])->name('search_don_vi_bao_tri');
+            Route::get('/getAdd', [DonViBaoTriController::class, 'getAdd'])->name('get_them_don_vi_bao_tri');
+            Route::post('/postAdd', [DonViBaoTriController::class, 'postAdd'])->name('post_them_don_vi_bao_tri');
+            Route::get('/delete/{id}', [DonViBaoTriController::class, 'delete']);
+            Route::get('/get-edit/{id}', [DonViBaoTriController::class, 'getEdit']);
+            Route::post('/post-edit/{id}', [DonViBaoTriController::class, 'postEdit']);
         });
     });
 });

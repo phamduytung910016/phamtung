@@ -53,7 +53,7 @@ class SendMailRequest extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line(Auth::user()->hoVaTen . '' . 'vừa báo hỏng thiết bị' . '' . Carbon::now())
+            ->line(Auth::user()->hoVaTen . ' ' . 'vừa báo hỏng thiết bị' . ' ' . Carbon::now())
             ->line('');
     }
 

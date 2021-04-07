@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNhaCungCapTable extends Migration
+class CreateDonViBaoTriTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateNhaCungCapTable extends Migration
      */
     public function up()
     {
-        Schema::create('nhacungcap', function (Blueprint $table) {
+        Schema::create('DonviBaoTri', function (Blueprint $table) {
             $table->id();
-            $table->string('tenNhaCungCap');
-            $table->string('nguoiDaiDien');
+            $table->integer('nhaCungCap_id');
             $table->string('diaChi');
-            $table->string('email')->nullable();
+            $table->string('nguoiDaiDien');
             $table->string('soDienThoai');
+            $table->string('email')->nullable();
             $table->string('maSoThue')->nullable();
             $table->string('ghiChu')->nullable();
             $table->timestamps();
@@ -33,6 +33,6 @@ class CreateNhaCungCapTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nhacungcap');
+        Schema::dropIfExists('DonviBaoTri');
     }
 }
