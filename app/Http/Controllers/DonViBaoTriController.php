@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DonViBaoTriModel;
 use App\Models\NhaCungCapModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DonViBaoTriController extends Controller
 {
@@ -33,13 +34,18 @@ class DonViBaoTriController extends Controller
 
     public function getAdd()
     {
-        $nhaCungCaps = $this->nhaCungCap->all();
-        return view('DonViBaoTri.add', compact('nhaCungCaps'));
+        if (Auth::user()->phanQuyen != 2) {
+            $nhaCungCaps = $this->nhaCungCap->all();
+            return view('DonViBaoTri.add', compact('nhaCungCaps'));
+        } else {
+            return back()->with('quyen', 'Bạn không có quyền thực hiện chức năng này');
+        }
     }
 
 
     public function postAdd()
     {
+        $this->
     }
 
     public function delete($id)
@@ -48,6 +54,9 @@ class DonViBaoTriController extends Controller
 
     public function getEdit($id)
     {
+        $donViBaoTri = $this->donViBaoTri->find($id);
+        $nhaCungCaps = $this->nhaCungCap->all();
+        return view('DonViBaoTri.edit', compact('donViBaoTri', 'nhaCungCaps'));
     }
 
     public function postEdit(Request $request, $id)

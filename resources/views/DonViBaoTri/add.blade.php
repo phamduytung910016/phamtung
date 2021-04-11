@@ -18,7 +18,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Nhà cung cấp tương ứng</label>
-                                        <select class="form-control select" name="khoaPhong_id">
+                                        <select class="form-control select" name="nhaCungCap_id">
                                             @foreach ($nhaCungCaps as $nhaCungCap)
                                                 <option value="{{ $nhaCungCap->id }}">{{ $nhaCungCap->tenNhaCungCap }}
                                                 </option>
