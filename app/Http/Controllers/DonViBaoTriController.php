@@ -45,7 +45,7 @@ class DonViBaoTriController extends Controller
 
     public function postAdd()
     {
-        $this->
+        
     }
 
     public function delete($id)
