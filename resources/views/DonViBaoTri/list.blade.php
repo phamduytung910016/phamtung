@@ -11,7 +11,7 @@
         <div class="content">
             <div class="row">
                 <div class="col-sm-4 col-3">
-                    <h4 class="page-title">Đơn vị bảo trì</h4>
+                    <h4 class="page-title" style="font-weight:4px;font-size:30px;">Đơn vị bảo trì</h4>
 
                 </div>
 
@@ -22,12 +22,12 @@
                         style="background-color: #009efb; color: white"><i class="fa fa-plus"></i> Thêm đơn vị bảo trì</a>
                 </div>
             </div>
-            <form action="" method="get">
+            <form action="/admin/donvibaotri/search" method="get">
                 @csrf
                 <div class="row">
                     <div class="col-sm-4 col-4">
                         <input class="form-control" name="dataSearch" style=" border-radius: 10px;"
-                            placeholder="Tên đơn vị bảo trì | Người đại diện | Số điện thoại ">
+                            placeholder="Người đại diện | Số điện thoại ">
                     </div>
                     <div class="col-sm-4 col-4">
                         <button type="submit" class="btn btn-rounded " style="background-color: #009efb; color: white"><i

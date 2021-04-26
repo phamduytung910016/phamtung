@@ -33,7 +33,7 @@ class DonViBaoTriRequest extends FormRequest
     public function messages()
     {
         return [
-            'nguoiDaiDien.required' => 'Bạn chưa nhập tên người đại diện',
+            'nguoiDaiDien.required' => 'Bạn chưa điền tên người đại diẹn',
             'soDienThoai.required' => 'Bạn chưa nhập số điện thoại',
             'diaChi.required' => 'Bạn chưa nhập địa chỉ'
         ];

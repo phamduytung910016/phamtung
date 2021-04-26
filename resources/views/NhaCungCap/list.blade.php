@@ -11,7 +11,7 @@
         <div class="content">
             <div class="row">
                 <div class="col-sm-4 col-3">
-                    <h4 class="page-title">Nhà cung cấp</h4>
+                    <h4 class="page-title" style="font-size: 30px;font-weight:5px;">Nhà cung cấp</h4>
 
                 </div>
 

@@ -30,6 +30,11 @@ class DonViBaoTriController extends Controller
 
     public function search(Request $request)
     {
+        $search = $this->donViBaoTri
+            ->Where('nguoiDaiDien', 'like', '%' . $request->dataSearch . '%')
+            ->orWhere('soDienThoai', 'like', '%' . $request->dataSearch . '%')
+            ->get();
+        return view('DonViBaoTri.list', compact('search'));
     }
 
 
@@ -64,5 +69,8 @@ class DonViBaoTriController extends Controller
 
     public function postEdit(Request $request, $id)
     {
+        $donViBaoTri = $this->donViBaoTri->find($id);
+        $donViBaoTri->update($request->all());
+        return redirect('/admin/donvibaotri')->with('update', 'Chỉnh sửa thành công');
     }
 }
