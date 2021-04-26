@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DonViBaoTriRequest;
 use App\Models\DonViBaoTriModel;
 use App\Models\NhaCungCapModel;
 use Illuminate\Http\Request;
@@ -43,9 +44,11 @@ class DonViBaoTriController extends Controller
     }
 
 
-    public function postAdd()
+    public function postAdd(DonViBaoTriRequest $request)
     {
-        
+
+        $this->donViBaoTri->create($request->all());
+        return redirect('/admin/donvibaotri')->with('add', 'Thêm mới thành công');
     }
 
     public function delete($id)

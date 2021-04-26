@@ -13,7 +13,7 @@ class DonViBaoTriRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class DonViBaoTriRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nguoiDaiDien' => 'required',
+            'soDienThoai' => 'required',
+            'diaChi' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nguoiDaiDien.required' => 'Bạn chưa nhập tên người đại diện',
+            'soDienThoai.required' => 'Bạn chưa nhập số điện thoại',
+            'diaChi.required' => 'Bạn chưa nhập địa chỉ'
         ];
     }
 }

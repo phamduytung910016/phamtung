@@ -13,7 +13,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <form action="{{ route('post_them_nha_cung_cap') }}" method="post">
+                        <form action="/admin/donvibaotri/postAdd" method="post">
                             @csrf <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -29,18 +29,27 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Địa chỉ<span class="text-danger">*</span></label>
+                                        @error('diaChi')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                         <input class="form-control" type="text" name="diaChi" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Người đại diện<span class="text-danger">*</span></label>
+                                        @error('nguoiDaiDien')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                         <input class="form-control" type="text" name="nguoiDaiDien" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Số điện thoại liên hệ<span class="text-danger">*</span></label>
+                                        @error('soDienThoai')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                         <input class="form-control" type="text" name="soDienThoai" autocomplete="off">
                                     </div>
                                 </div>
