@@ -107,4 +107,6 @@ Route::middleware('AdminLogInMiddle')->group(function () {
 // Route::get('/demo', [BrandController::class, 'index']);
 // Route::post('/demo1', [BrandController::class, 'add']);
 
-Route::get('/test', [MailController::class, 'sendOfferMail']);
+Route::get('/test', function(){
+    return view('ThietBi.add');
+});

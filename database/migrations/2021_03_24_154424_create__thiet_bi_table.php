@@ -16,17 +16,19 @@ class CreateThietBiTable extends Migration
         Schema::create('ThietBi', function (Blueprint $table) {
             $table->id();
             $table->string('tenThietBi');
-            $table->string('nhomThietBi')->nullable();
-            $table->string('loaiThietBi')->nullable();
-            $table->string('mucDoRuiRo')->nullable();
-            $table->integer('soLuong');
-            $table->string('donViTinh');
-            $table->double('giaNhap')->nullable();
-            $table->string('serial');
+            $table->string('serial')->nullable();
             $table->string('model');
-            $table->string('nhaCungCap')->nullable();
-            $table->string('hangSanXuat');
-            $table->string('xuatXu');
+            $table->string('maLoaiThietBi')->nullable();
+            $table->string('ruiRo')->nullable();
+            $table->string('donViTinh');
+            $table->string('soLuong');
+            $table->integer('canBoPhuTrach_id');
+            $table->integer('canBoSuDung_id')->nullable();
+            $table->integer('khoaPhongSuDung_id')->nullable();
+            $table->integer('nhaCungCap_id')->nullable();
+            $table->integer('donViBaoTri_id')->nullable();
+            $table->string('hangSanXuat')->nullable();
+            $table->string('xuatXu')->nullable();
             $table->date('namSanXuat');
             $table->integer('kiemDinhDinhKy');
             $table->date('ngayKiemDinhLanDau')->nullable();
@@ -36,11 +38,8 @@ class CreateThietBiTable extends Migration
             $table->string('cauHinhKyThuat')->nullable();
             $table->integer('giaTriBanDau')->nullable();
             $table->integer('khauHaoHangNam')->nullable();
-            $table->integer('khoaPhong_id')->nullable();
-            $table->integer('user_id')->nullable();
-            $table->string('tinhTrang')->nullable();
-            $table->year('namSuDung')->nullable();
-            $table->integer('donViBaoTri_id')->nullable();
+            $table->string('tinhTrang');
+            $table->date('namSuDung')->nullable();
             $table->timestamps();
         });
     }

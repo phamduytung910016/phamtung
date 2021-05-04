@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewProduct;
 use App\Http\Requests\ThietBiHongRequest;
 use App\Models\ThietBiHong;
+use App\Models\User;
 use GuzzleHttp\Psr7\Request as Psr7Request;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,8 +53,11 @@ class ThietBiHongController extends Controller
         $this->thietBiHong->create($request->all());
         //return redirect('/admin/thietbihong')->with('add', 'Thêm thành công');
         //return về url nơi xử lý việc gửi mail
-        $url = '/admin/thietbihong/send-mail';
-        return redirect($url);
+        // $url = '/admin/thietbihong/send-mail';
+        // return redirect($url);
+        $nguoiNhan = User::find(2);
+        event(new Registered($nguoiNhan));
+        return redirect('/admin/thietbihong/')->with('add', 'Thêm mới thành công');
     }
 
     public function delete($id)
