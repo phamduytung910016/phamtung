@@ -16,14 +16,25 @@ class UserSeeder extends Seeder
     {
         DB::table('user')->delete();
         DB::table('user')->insert([
-            ['hoVaTen' => 'Phạm Duy Tùng',
-            'email' => 'tung@gmail.com',
-            'password' => bcrypt('123456789'),
-            'soDienThoai' => '0699699999',
-            'phanQuyen' => 1,
-            'khoaPhong_id' => '1',
-            'maNguoiDung' => '20182876',
-            'diaChi' => '4a/ngách 14/Dương Quảng Hàm/Phường Quan Hoa/Quận Cầu Giấy'
+            [
+                'hoVaTen' => 'Phạm Duy Tùng',
+                'email' => 'tung@gmail.com',
+                'password' => bcrypt('123456789'),
+                'soDienThoai' => '0699699999',
+                'phanQuyen' => 1,
+                'khoaPhong_id' => '1',
+                'maNguoiDung' => '20182876',
+                'diaChi' => '4a/ngách 14/Dương Quảng Hàm/Phường Quan Hoa/Quận Cầu Giấy'
+            ],
+            [
+                'hoVaTen' => 'Ngô Hiền Phương',
+                'email' => 'tungdeptrai1357@gmail.com',
+                'password' => bcrypt('123456789'),
+                'soDienThoai' => '0699699999',
+                'phanQuyen' => 3,
+                'khoaPhong_id' => '2',
+                'maNguoiDung' => ' 20197087',
+                'diaChi' => '4a/ngách 14/Dương Quảng Hàm/Phường Quan Hoa/Quận Cầu Giấy'
             ]
         ]);
     }

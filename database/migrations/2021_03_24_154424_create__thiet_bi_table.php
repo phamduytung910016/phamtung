@@ -22,6 +22,7 @@ class CreateThietBiTable extends Migration
             $table->string('ruiRo')->nullable();
             $table->string('donViTinh');
             $table->string('soLuong');
+            $table->integer('tinhTrang');
             $table->integer('canBoPhuTrach_id');
             $table->integer('canBoSuDung_id')->nullable();
             $table->integer('khoaPhongSuDung_id')->nullable();
@@ -38,7 +39,6 @@ class CreateThietBiTable extends Migration
             $table->string('cauHinhKyThuat')->nullable();
             $table->integer('giaTriBanDau')->nullable();
             $table->integer('khauHaoHangNam')->nullable();
-            $table->string('tinhTrang');
             $table->date('namSuDung')->nullable();
             $table->timestamps();
         });
