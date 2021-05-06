@@ -14,14 +14,15 @@ class ThietBiController extends Controller
     private $donViBaoTri;
     private $thietBi;
 
-    public function __construct(ThietBiModel $thietBi)
+    public function __construct()
     {
-        return $this->$thietBi = $thietBi;
+         $this->thietBi =new ThietBiModel();
 
     }
 
     public function index()
     {
+        return view('ThietBi.list');
 
     }
 

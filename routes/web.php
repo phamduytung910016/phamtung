@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KhoaPhongController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NhaCungCapController;
+use App\Http\Controllers\ThietBiController;
 use App\Http\Controllers\ThietBiHongController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
@@ -99,6 +100,15 @@ Route::middleware('AdminLogInMiddle')->group(function () {
             Route::get('/delete/{id}', [DonViBaoTriController::class, 'delete']);
             Route::get('/get-edit/{id}', [DonViBaoTriController::class, 'getEdit']);
             Route::post('/post-edit/{id}', [DonViBaoTriController::class, 'postEdit']);
+        });
+        Route::prefix('thietbi')->group(function () {
+            Route::get('/', [ThietBiController::class, 'index'])->name('list_thiet_bi');
+            Route::get('/search', [ThietBiController::class, 'search'])->name('search_thiet_bi');
+            Route::get('/getAdd', [ThietBiController::class, 'getAdd'])->name('get_them_thiet_bi');
+            Route::post('/postAdd', [ThietBiController::class, 'postAdd'])->name('post_them_thiet_bi');
+            Route::get('/delete/{id}', [ThietBiController::class, 'delete']);
+            Route::get('/get-edit/{id}', [ThietBiController::class, 'getEdit']);
+            Route::post('/post-edit/{id}', [ThietBiController::class, 'postEdit']);
         });
     });
 });
