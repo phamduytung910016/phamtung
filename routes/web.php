@@ -1,20 +1,24 @@
 <?php
 
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
-use App\Http\Controllers\DemoMailController;
 use App\Http\Controllers\DoctorController;
-use App\Http\Controllers\DonViBaoTriController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\KhoaPhongController;
-use App\Http\Controllers\MailController;
-use App\Http\Controllers\NhaCungCapController;
 use App\Http\Controllers\ThietBiController;
+use App\Http\Controllers\DemoMailController;
+use App\Http\Controllers\KhoaPhongController;
+
+use App\Http\Controllers\NhaCungCapController;
+use App\Http\Controllers\DonViBaoTriController;
+use App\Http\Controllers\LoaiThietBiController;
+use App\Http\Controllers\NhomThietBiController;
 use App\Http\Controllers\ThietBiHongController;
-use App\Http\Controllers\UserController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\VatTuKemTheoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,6 +105,28 @@ Route::middleware('AdminLogInMiddle')->group(function () {
             Route::get('/get-edit/{id}', [DonViBaoTriController::class, 'getEdit']);
             Route::post('/post-edit/{id}', [DonViBaoTriController::class, 'postEdit']);
         });
+
+        //Nhóm thiết bị
+        Route::prefix('nhomthietbi')->group(function () {
+            Route::get('/', [NhomThietBiController::class, 'index'])->name('list_nhom_thiet_bi');
+            Route::get('/search', [NhomThietBiController::class, 'search'])->name('search_nhom_thiet_bi');
+            Route::get('/getAdd', [NhomThietBiController::class, 'getAdd'])->name('get_them_nhom_thiet_bi');
+            Route::post('/postAdd', [NhomThietBiController::class, 'postAdd'])->name('post_them_nhom_thiet_bi');
+            Route::get('/get-edit/{id}', [NhomThietBiController::class, 'getEdit']);
+            Route::post('/post-edit/{id}', [NhomThietBiController::class, 'postEdit']);
+        });
+
+        //Loại thiết bị
+        Route::prefix('loaithietbi')->group(function () {
+            Route::get('/', [LoaiThietBiController::class, 'index'])->name('list_loai_thiet_bi');
+            Route::get('/search', [LoaiThietBiController::class, 'search'])->name('search_loai_thiet_bi');
+            Route::get('/getAdd', [LoaiThietBiController::class, 'getAdd'])->name('get_them_loai_thiet_bi');
+            Route::post('/postAdd', [LoaiThietBiController::class, 'postAdd'])->name('post_them_loai_thiet_bi');
+            Route::get('/get-edit/{id}', [LoaiThietBiController::class, 'getEdit']);
+            Route::post('/post-edit/{id}', [LoaiThietBiController::class, 'postEdit']);
+        });
+
+
         Route::prefix('thietbi')->group(function () {
             Route::get('/', [ThietBiController::class, 'index'])->name('list_thiet_bi');
             Route::get('/search', [ThietBiController::class, 'search'])->name('search_thiet_bi');
@@ -117,6 +143,5 @@ Route::middleware('AdminLogInMiddle')->group(function () {
 // Route::get('/demo', [BrandController::class, 'index']);
 // Route::post('/demo1', [BrandController::class, 'add']);
 
-Route::get('/test', function(){
-    return view('ThietBi.add');
-});
+Route::get('/test',[VatTuKemTheoController::class , 'index']);
+ Route::get('/test1', [ThietBiController::class , 'index']);

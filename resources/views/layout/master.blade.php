@@ -9,6 +9,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://fontawesome.com/">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/select2.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <!--[if lt IE 9]>
 		<script src="assets/js/html5shiv.min.js"></script>
@@ -136,6 +139,13 @@
                         </li>
                         <li>
                             <a href="{{route('listhietbihong')}}"><i class="fa fa-flag-o"></i> <span>Báo hỏng</span></a>
+                        </li>
+                        <li class="submenu">
+                            <a href=""><i class="fa fa-delicious"></i> <span>Quản lý thiết bị</span></a>
+                            <ul style="display:none;">
+                                <li><a href="{{route('list_nhom_thiet_bi')}}">Danh sách nhóm thiết bị</a></li>
+                                <li><a href="{{route('list_loai_thiet_bi')}}">Danh sách loại thiết bị</a></li>
+                            </ul>
                         </li>
                         <li class="submenu">
 							<a href=""><i class="fa fa-university"></i> <span> Nhà cung cấp  </span> <span class="menu-arrow"></span></a>

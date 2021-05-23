@@ -22,7 +22,8 @@ class ThietBiController extends Controller
 
     public function index()
     {
-        return view('ThietBi.list');
+        $data = $this->thietBi->find(1);
+        dd( $data->VatTuKemTheo);
 
     }
 

@@ -11,7 +11,6 @@ class BrandController extends Controller
 {
     public function index()
     {
-
         $datas = BrandModel::all();
         return view('test', compact('datas'));
     }

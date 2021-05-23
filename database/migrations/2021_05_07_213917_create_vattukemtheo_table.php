@@ -17,7 +17,7 @@ class CreateVattukemtheoTable extends Migration
             $table->id();
             $table->string('tenVatTu');
             $table->string('maVatTu');
-            $table->string('maThietBi');
+            $table->string('maThietBiTuongUng');
             $table->string('donViTinh')->nullable();
             $table->string('soLuong')->nullable();
             $table->integer('trangThai')->nullable();
