@@ -12,10 +12,8 @@
             <div style="font-size: 20px;">Nhập thông tin loại thiết bị</div>
 
             <hr>
-
-            <form action="{{ route('post_them_loai_thiet_bi') }}" method="post">
+            <form action="{{route('post_them_loai_thiet_bi')}}" method="POST">
                 @csrf
-                <input type="hidden" name="_token" value="DZ7BkeMfcTinrovHsfgIG9ypUXAt2LqVbhiirZ5K">
                 <div class="row">
                     <div class="col-sm-6 offset-3">
                         <div class="form-group">
@@ -26,7 +24,6 @@
                             <input style="width: 65%" class="form-control" type="text" name="tenLoaiThietBi">
                         </div>
                     </div>
-
                     <div class="col-sm-6 offset-3">
                         <div class="form-group">
                             <label>Mã loại thiết bị<span class="text-danger">*</span></label>
@@ -55,11 +52,11 @@
 
                     <div class="col-sm-6 offset-2 text-center">
 
-                        <button class="btn submit-btn" type="submit" value="Lưu"
-                            style="background-color: #009efb; color: white; border-radius: 20px"><i class="fa fa-plus"></i>
+                        <button class="btn submit-btn" value="Lưu"
+                            style="background-color: #009efb; color: white; border-radius: 20px" type="submit"><i
+                                class="fa fa-plus"></i>
                             Thêm</button>
 
-                        <!-- <div class="canl" style="margin-left: 50px"><a href="http://demo.qltbyt.com/ktv/accessory/list" style="color: white; text-decoration: none;">Hủy</a></div> -->
 
                     </div>
 

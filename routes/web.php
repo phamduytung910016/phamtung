@@ -128,7 +128,13 @@ Route::middleware('AdminLogInMiddle')->group(function () {
 
 
         Route::prefix('thietbi')->group(function () {
-            Route::get('/', [ThietBiController::class, 'index'])->name('list_thiet_bi');
+            Route::get('/listAll', [ThietBiController::class, 'listAll'])->name('list_thiet_bi_all');
+            Route::get('/listChuaBanGiao', [ThietBiController::class, 'listChuaBanGiao'])->name('list_thiet_bi_chua_ban_gia');
+            Route::get('/listDangSuDung', [ThietBiController::class, 'listDangSuDung'])->name('list_thiet_bi_dang_su_dung');
+            Route::get('/listBaoHong', [ThietBiController::class, 'listBaoHong'])->name('list_thiet_bi_bao_hong');
+            Route::get('/listDangSuaChua', [ThietBiController::class, 'listDangSuaChua'])->name('list_thiet_bi_dang_sua_chua');
+            Route::get('/listNgungSuDung', [ThietBiController::class, 'listNgungSuDung'])->name('list_thiet_bi_ngung_su_dung');
+            Route::get('/listThanhLy', [ThietBiController::class, 'listThanhLy'])->name('list_thiet_bi_thanh_ly');
             Route::get('/search', [ThietBiController::class, 'search'])->name('search_thiet_bi');
             Route::get('/getAdd', [ThietBiController::class, 'getAdd'])->name('get_them_thiet_bi');
             Route::post('/postAdd', [ThietBiController::class, 'postAdd'])->name('post_them_thiet_bi');

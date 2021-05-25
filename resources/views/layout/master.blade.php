@@ -24,7 +24,7 @@
         <div class="header">
 			<div class="header-left">
 				<a href="/admin/" class="logo">
-					<img src="{{asset('assets/img/logo.png')}}" width="35" height="35" alt=""> <span>Preclinic</span>
+					<img src="{{asset('assets/img/logo.png')}}" width="35" height="35" alt=""> <span>Quản lý thiết bị</span>
 				</a>
 			</div>
 			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
@@ -143,8 +143,10 @@
                         <li class="submenu">
                             <a href=""><i class="fa fa-delicious"></i> <span>Quản lý thiết bị</span></a>
                             <ul style="display:none;">
+                                <li><a href="{{route('list_thiet_bi_all')}}">Danh sách thiết bị</a></li>
                                 <li><a href="{{route('list_nhom_thiet_bi')}}">Danh sách nhóm thiết bị</a></li>
                                 <li><a href="{{route('list_loai_thiet_bi')}}">Danh sách loại thiết bị</a></li>
+
                             </ul>
                         </li>
                         <li class="submenu">

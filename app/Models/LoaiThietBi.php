@@ -12,6 +12,11 @@ class LoaiThietBi extends Model
     protected $fillable = ['maLoaiThietBi', 'tenLoaiThietBi', 'maNhomThietBi'];
     public function NhomThietBi()
     {
-        return $this->belongsTo(NhomThietBi::class ,'maNhomThietBi','maNhomThietBi');
+        return $this->belongsTo(NhomThietBi::class, 'maNhomThietBi', 'maNhomThietBi');
+    }
+
+    public function ThietBi()
+    {
+        return $this->hasMany(ThietBiModel::class, 'maLoaiThietBi', 'maLoaiThietBi');
     }
 }

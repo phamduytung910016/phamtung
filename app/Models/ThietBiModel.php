@@ -10,9 +10,14 @@ class ThietBiModel extends Model
     use HasFactory;
     protected $table = "ThietBi";
     protected $fillable = [
-        'tenThietBi', 'serial', 'model', 'maThietBi', 'maLoaiThietBi', 'ruiRo', 'donViTinh', 'soLuong', 'tinhTrang', 'canBoPhuTrach',
-        'canBoSuDung', 'khoaPhongSuDung', 'nhaCungCap', 'donViBaoTri', 'hangSanXuat', 'xuatXu', 'namSanXuat', 'kiemDinhDinhKy', 'ngayKiemDinhLanDau',
-        'ngayNhapKho', 'ngayHetHanBaoHanh', 'thongSoKyThuat', 'cauHinhKyThuat', 'giaTriBanDau', 'khauHaoHangNam', 'namSuDung'
+        'tenThietBi', 'serial', 'model', 'maThietBi', 'maLoaiThietBi','maNhomThietBi', 'mucDoRuiRo', 'donViTinh', 'soLuong', 'tinhTrang', 'canBoVatTuPhuTrach','canBoKhoaPhongPhuTrach',
+        'khoaPhongSuDung', 'nhaCungCap', 'donViBaoTri', 'hangSanXuat', 'xuatXu', 'namSanXuat', 'kiemDinhDinhKy', 'ngayKiemDinhLanDau',
+        'ngayNhapKho', 'ngayHetHanBaoHanh', 'thongSoKyThuat', 'cauHinhKyThuat', 'giaTriBanDau', 'khauHaoHangNam', 'giaTriHienTai','namSuDung'
     ];
+
+    public function LoaiThietBi(){
+        return $this->belongsTo(LoaiThietBi::class , 'maLoaiThietBi','maLoaiThietBi');
+    }
+
 
 }

@@ -17,18 +17,23 @@ class ThietBiSeeder extends Seeder
         DB::table('ThietBi')->delete();
         DB::table('ThietBi')->insert([
             [
-                'tenThietBi' => 'Máy siêu âm màu',
-                'serial' =>'60534W55',
-                'model' => 'Logic P3 Express',
-                'maThietBi' => 'CCDHA01-19062020-2',
-                'maLoaiThietBi' =>'CDHA',
-                'donViTinh' => 'cái',
-                'soLuong' => '1',
-                'tinhTrang' => '1',
-                'canBoPhuTrach_id' => '2',
-                'nhaCungCap_id' => '1',
-                'donViBaoTri_id' =>'1'
-            ]
+                'tenThietBi' => 'Máy siêu âm Doppler màu chuyên tim (03 đầu dò)',
+                'serial' =>'US118D1058',
+                'model' => 'Afiniti 50',
+                'maThietBi' => '',
+                'maLoaiThietBi' =>'MSA',
+                'maNhomThietBi' =>'N01',
+                'mucDoRuiRo' => 'A',
+                'donViTinh' =>'cái',
+                'soLuong' => '6',
+                'tinhTrang' => 1,
+                'canBoVatTuPhuTrach' => 'Ngô Hiền Phương',
+                'hangSanXuat' => 'LG',
+                'xuatXu' =>'Nhật Bản',
+                'namSanXuat' =>'2002',
+                'kiemDinhDinhKy'=> 1,
+            ],
+        
         ]);
     }
 }

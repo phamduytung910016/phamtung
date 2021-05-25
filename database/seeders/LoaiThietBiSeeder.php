@@ -19,72 +19,72 @@ class LoaiThietBiSeeder extends Seeder
             [
                 'tenLoaiThietBi' => 'Hệ thống chụp mạch số hóa xóa nền(DSA)',
                 'maLoaiThietBi' => 'DSA',
-                'maNhomThietBi' => 'N1 Thiết bị chẩn đoán hình ảnh'
+                'maNhomThietBi' => 'N01'
             ],
             [
                 'tenLoaiThietBi' => 'Máy CT',
                 'maLoaiThietBi' => 'CTxx',
-                'maNhomThietBi' => 'N1 Thiết bị chẩn đoán hình ảnh'
+                'maNhomThietBi' => 'N01'
             ],
             [
                 'tenLoaiThietBi' => 'Máy cộng hưởng từ',
                 'maLoaiThietBi' => 'MRIx',
-                'maNhomThietBi' => 'N1 Thiết bị chẩn đoán hình ảnh'
+                'maNhomThietBi' => 'N01'
             ],
             [
                 'tenLoaiThietBi' => 'Máy đo nhịp tim',
                 'maLoaiThietBi' => 'DNT',
-                'maNhomThietBi' => 'N4 Thiết bị phòng mổ'
+                'maNhomThietBi' => 'N04'
             ],
             [
                 'tenLoaiThietBi' => 'Máy siêu âm',
                 'maLoaiThietBi' => 'MSA',
-                'maNhomThietBi' => 'N1 Thiết bị chẩn đoán hình ảnh'
+                'maNhomThietBi' => 'N01'
             ],
             [
                 'tenLoaiThietBi' => 'Máy X quang',
                 'maLoaiThietBi' => 'MXQ',
-                'maNhomThietBi' => 'N1 Thiết bị chẩn đoán hình ảnh'
+                'maNhomThietBi' => 'N01'
             ],
             [
                 'tenLoaiThietBi' => 'Hệ thống nội soi 3D',
                 'maLoaiThietBi' => 'NS3D',
-                'maNhomThietBi' => 'N11 Thiết bị nội soi chuẩn đoán'
+                'maNhomThietBi' => 'N11'
             ],
             [
                 'tenLoaiThietBi' => 'Dao mổ diện',
                 'maLoaiThietBi' => 'DMD',
-                'maNhomThietBi' => 'N4 Thiết bị phòng mổ'
+                'maNhomThietBi' => 'N04'
             ],
             [
                 'tenLoaiThietBi' => 'Hệ thống gia tốc tuyến tính',
                 'maLoaiThietBi' => 'HTGTTT',
-                'maNhomThietBi' => 'N5 Thiết bị chuyên khoa ung bướu và y học hạt nhân'
+                'maNhomThietBi' => 'N05'
             ],
             [
                 'tenLoaiThietBi' => 'Hệ thống SPECT loại 2 đầu thu',
                 'maLoaiThietBi' => 'SPECT',
-                'maNhomThietBi' => 'N5 Thiết bị chuyên khoa ung bướu và y học hạt nhân'
+                'maNhomThietBi' => 'N05'
             ],
             [
                 'tenLoaiThietBi' => 'Nội soi chuẩn đoán',
                 'maLoaiThietBi' => 'NSCD',
-                'maNhomThietBi' => 'N11 Thiết bị nội soi chuẩn đoán'
+                'maNhomThietBi' => 'N11'
             ],
             [
                 'tenLoaiThietBi' => 'Máy hút dịch',
                 'maLoaiThietBi' => 'MHD',
-                'maNhomThietBi' => 'N2 Thiết bị hồi sức cấp cứu'
+                'maNhomThietBi' => 'N02'
             ],
             [
                 'tenLoaiThietBi' => 'Hệ thống/ thiết bị hồi sức khác',
                 'maLoaiThietBi' => 'TBK',
-                'maNhomThietBi' => 'N2 Thiết bị hồi sức cấp cứu'
+                'maNhomThietBi' => 'N02'
             ],
             [
                 'tenLoaiThietBi' => 'Hệ thống chụp cổng hưởng từ',
                 'maLoaiThietBi' => 'MRI',
-                'maNhomThietBi' => 'N1 Thiết bị chẩn đoán hình ảnh'
+                'maNhomThietBi' => 'N01'
             ],
         ]);
     }

@@ -58,45 +58,39 @@
 
             <!-- tìm kiếm -->
 
-            <form action="" method="GET">
+            <form action="{{ route('search_loai_thiet_bi') }}" method="GET">
+                @csrf
                 <div class="content">
                     <div class="row">
-
                         <div class="col-sm-3 col-3">
-                            <input class="form-control" name="import_id" style=" border-radius: 10px;"
+                            <input class="form-control" name="dataSearch" style=" border-radius: 10px;"
                                 placeholder="Tên loại thiết bị | Mã loại thiết bị" value="">
                         </div>
 
                         <div class="col-sm-3 col-3">
 
-                            <select style=" height: 100% ;border-radius: 10px; border: 1px solid #f1f1f1" name="dv_group"
+                            <select style=" height: 100% ;border-radius: 10px; border: 1px solid #f1f1f1" name="maNhomThietBi"
                                 class="form-control">
 
                                 <option value="">Chọn nhóm thiết bị</option>
 
                                 @foreach ($nhomThietBis as $nhomThietBi)
-                                    <option value="{{ $nhomThietBi->tenNhomThietBi }}">{{ $nhomThietBi->tenNhomThietBi }}
+                                    <option value="{{ $nhomThietBi->maNhomThietBi }}">{{ $nhomThietBi->tenNhomThietBi }}
                                     </option>
                                 @endforeach
-
-
-
                             </select>
                         </div>
-
                         <div class="col-sm-3 col-3">
-
                             <button class="btn btn-rounded " style="background-color: #009efb; color: white;float: right;"
                                 type="submit"><i class="fa fa-search"></i>
                                 Tìm kiếm</button>
-
                         </div>
 
                         <!-- <div class="col-sm-1 col-1">
 
-                          <b>Tất cả: 17</b>
+                              <b>Tất cả: 17</b>
 
-                        </div> -->
+                            </div> -->
 
                     </div>
 
@@ -154,26 +148,49 @@
                 <tbody>
 
                     @if (isset($loaiThietBis))
-                    @foreach ($loaiThietBis as $loaiThietBi )
-                    <tr style="font-size: 15px;">
+                        @foreach ($loaiThietBis as $loaiThietBi)
+                            <tr style="font-size: 15px;">
 
-                        <td>{{$loaiThietBi->maLoaiThietBi}}</td>
+                                <td>{{ $loaiThietBi->maLoaiThietBi }}</td>
 
-                        <td>{{$loaiThietBi->tenLoaiThietBi}}</td>
+                                <td>{{ $loaiThietBi->tenLoaiThietBi }}</td>
 
-                        <td>{{$loaiThietBi->NhomThietBi->tenNhomThietBi}}</td>
+                                <td>{{ $loaiThietBi->NhomThietBi->tenNhomThietBi }}</td>
 
-                        <td style="text-align: center;">
+                                <td style="text-align: center;">
 
-                            <a href=""><i class="fa fa-pencil-square-o " style="font-size: 20px;" title="Sửa"
-                                    aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="/admin/loaithietbi/get-edit/{{$loaiThietBi->id}}"><i class="fa fa-pencil-square-o " style="font-size: 20px;" title="Sửa"
+                                            aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                            <a onclick="return confirm('Bạn có chắc chắn xóa?')" href=""><i style="font-size: 20px;"
-                                    class="fa fa-trash " title="Xóa" aria-hidden="true"></i></a>
+                                    <a onclick="return confirm('Bạn có chắc chắn xóa?')" href=""><i style="font-size: 20px;"
+                                            class="fa fa-trash " title="Xóa" aria-hidden="true"></i></a>
 
-                        </td>
-                    </tr>
-                    @endforeach
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+
+                    @if (isset($result))
+                        @foreach ($result as $loaiThietBi)
+                            <tr style="font-size: 15px;">
+
+                                <td>{{ $loaiThietBi->maLoaiThietBi }}</td>
+
+                                <td>{{ $loaiThietBi->tenLoaiThietBi }}</td>
+
+                                <td>{{ $loaiThietBi->NhomThietBi->tenNhomThietBi }}</td>
+
+                                <td style="text-align: center;">
+
+                                    <a href="/admin/loaithietbi/get-edit/{{$loaiThietBi->id}}"><i class="fa fa-pencil-square-o " style="font-size: 20px;" title="Sửa"
+                                            aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                    <a onclick="return confirm('Bạn có chắc chắn xóa?')" href=""><i style="font-size: 20px;"
+                                            class="fa fa-trash " title="Xóa" aria-hidden="true"></i></a>
+
+                                </td>
+                            </tr>
+                        @endforeach
                     @endif
 
 
@@ -189,7 +206,7 @@
                     <nav>
                         <ul class="pagination">
                             @if (isset($loaiThietBis))
-                            {{$loaiThietBis->links()}}
+                                {{ $loaiThietBis->links() }}
                             @endif
                         </ul>
                     </nav>
