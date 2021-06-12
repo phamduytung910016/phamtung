@@ -24,6 +24,7 @@ class DonViBaoTriRequest extends FormRequest
     public function rules()
     {
         return [
+            'tenDonViBaoTri' =>'required',
             'nguoiDaiDien' => 'required',
             'soDienThoai' => 'required',
             'diaChi' => 'required'
@@ -33,7 +34,8 @@ class DonViBaoTriRequest extends FormRequest
     public function messages()
     {
         return [
-            'nguoiDaiDien.required' => 'Bạn chưa điền tên người đại diẹn',
+            'tenDonViBaoTri.required' => 'Bạn chưa nhập tên đơn vị bảo trì',
+            'nguoiDaiDien.required' => 'Bạn chưa điền tên người đại diện',
             'soDienThoai.required' => 'Bạn chưa nhập số điện thoại',
             'diaChi.required' => 'Bạn chưa nhập địa chỉ'
         ];

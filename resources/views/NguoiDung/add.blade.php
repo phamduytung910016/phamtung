@@ -62,7 +62,7 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-md-6 col-lg-6">
                                         <div class="form-group">
-                                            <label>Phân quyền</label>
+                                            <label>Phân quyền<span style="color: red">*</span></label>
                                             @error('phanQuyen')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -76,8 +76,8 @@
                                     </div>
                                     <div class="col-sm-6 col-md-6 col-lg-6">
                                         <div class="form-group">
-                                            <label>Khoa phòng</label>
-                                            @error('khoaPhong')
+                                            <label>Khoa phòng<span style="color: red">*</span></label>
+                                            @error('khoaPhong_id')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                             <select class="form-control select" name="khoaPhong_id">

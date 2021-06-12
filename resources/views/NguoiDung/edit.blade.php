@@ -21,7 +21,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Email <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="email" name="email" value="{{ $user->email }}">
+                                    <input class="form-control" type="email" name="email" value="{{ $user->email }}" disabled>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -30,12 +30,12 @@
                                     <input class="form-control" type="text" name="diaChi" value="{{ $user->diaChi }}">
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            {{-- <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Password<span class="text-danger">*</span></label>
-                                    <input class="form-control" type="password" name="password" value="">
+                                    <input class="form-control" type="password" name="password" value="{{$user->password}}">
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Số điện thoại</label>

@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
-use App\Mail\OrderShipped;
-use App\Models\KhoaPhong;
 use App\Models\User;
+use App\Models\KhoaPhong;
+use App\Mail\OrderShipped;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
@@ -72,6 +73,7 @@ class UserController extends Controller
     {
         if (Auth::user()->phanQuyen == 1) {
             $user = User::find($id);
+            //$user['password']= Crypt::decrypt($user->password);
             $khoaPhongs = KhoaPhong::all();
             return view('NguoiDung.edit', compact('user', 'khoaPhongs'));
         } else {
@@ -83,8 +85,14 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $data = $request->all();
-        $data['password'] = Hash::make($request->password);
-        $user->update($data);
+
+        $user->hoVaTen = $data['hoVaTen'];
+        $user->soDienThoai = $data['soDienThoai'];
+        $user->phanQuyen = $data['phanQuyen'];
+        $user->maNguoiDung = $data['maNguoiDung'];
+        $user->diaChi = $data['diaChi'];
+        $user->khoaPhong_id = $data['khoaPhong_id'];
+        $user->save();
         return redirect('/admin/user')->with('update', 'Cập nhật thành công');
     }
 }

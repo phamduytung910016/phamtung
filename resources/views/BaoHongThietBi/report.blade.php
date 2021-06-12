@@ -1,131 +1,67 @@
 @extends('layout.master')
 @section('content')
-    <div class="page-wrapper">
-        <div class="content">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2" style="width:60% ;height:30%">
-                    <h4 class="page-title">Phiếu báo hỏng</h4>
-                </div>
-            </div>
-            {{-- @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif --}}
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <form action="{{ route('postThemThietBiHong') }}" method="POST">
-                        @csrf
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Người báo hỏng<span class="text-danger">*</span></label>
-                                    <input class="form-control" type="text" name="tenNguoiDung"
-                                        value="{{ Auth::user()->hoVaTen }}">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Khoa phòng</label>
-                                    <input class="form-control" type="text" name="khoaPhong"
-                                        value="{{ Auth::user()->khoaPhong->ten }}">
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Tên thiết bị <span class="text-danger">*</span></label>
-                                            @error('tenThietBi')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                            <input class="form-control" type="text" name="tenThietBi">
-                                        </div>
-
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Ghi chú</label>
-                                            <input type="text" class="form-control" name="ghiChu">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6 col-md-6 col-lg-4">
-                                        <div class="form-group">
-                                            <label>Serial<span class="text-danger">*</span></label>
-                                            @error('serial')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                            <input type="text" class="form-control" name="serial">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-6 col-lg-4">
-                                        <div class="form-group">
-                                            <label>Model<span class="text-danger">*</span></label>
-                                            @error('model')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                            <input type="text" class="form-control" name="model">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-6 col-lg-4">
-                                        <div class="form-group">
-                                            <label>Mã thiết bị</label>
-                                            <input type="text" class="form-control" name="maThietBi">
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Trạng thái</label>
-                                    <div>
-                                        <input type="text" class="form-control datetimepicker" value="Đang báo hỏng"
-                                            name="trangThai">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Ảnh thiết bị</label>
-                                    <div class="profile-upload">
-                                        <div class="upload-img">
-                                            <img alt="" src="assets/img/user.jpg">
-                                        </div>
-                                        <div class="upload-input">
-                                            <input type="file" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>File liên quan</label>
-                                    <div class="profile-upload">
-                                        <div class="upload-img">
-                                            <img alt="" src="assets/img/user.jpg">
-                                        </div>
-                                        <div class="upload-input">
-                                            <input type="file" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="page-wrapper" style="min-height: 367px;">
+        <style>
+        </style>
+        <div class="container">
+            <div style="font-size: 20px;"><h1>Báo hỏng thiết bị</h1></div>
+            <hr>
+            <form action="/admin/baohong/postAdd/{{$data->id}}" method="POST">
+                @csrf
+                <div class="row">
+                    <div class="col-sm-6 offset-3">
+                        <div class="form-group">
+                            <label>Tên thiết bị<span class="text-danger">*</span></label>
+                            <input style="width: 65%" class="form-control" type="text" value="{{$data->tenThietBi}}"
+                                id="idKhoaPhong" disabled>
                         </div>
-                        <div class="m-t-20 text-center">
-                            <button class="btn btn-primary submit-btn" type="submit">Báo hỏng</button>
+                    </div>
+                    <div class="col-sm-6 offset-3">
+                        <div class="form-group">
+                            <label>Mã thiết bị<span class="text-danger">*</span></label>
+                            <input style="width: 65%" class="form-control" type="text" value="{{$data->maThietBi}}"
+                                id="idKhoaPhong" disabled>
                         </div>
-                    </form>
+                    </div>
+                    <div class="col-sm-6 offset-3">
+                        <div class="form-group">
+                            <label>Khoa phòng phụ trách<span class="text-danger">*</span></label><br>
+                            <input style="width: 65%; height: 38px; border: 1px solid #f2f2f2" type="text"
+                              value="{{$data->KhoaPhongSuDung->ten}}">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 offset-3">
+                        <div class="form-group">
+                            <label>Người báo hỏng<span class="text-danger">*</span></label><br>
+                            <input style="width: 65%; height: 38px; border: 1px solid #f2f2f2" type="text"
+                              value="{{Auth::user()->hoVaTen}}" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 offset-3">
+                        <div class="form-group">
+                            <label>Ngày báo hỏng</label><br>
+                            <input style="width: 65%; height: 38px; border: 1px solid #f2f2f2" type="date"
+                              name="ngayBaoHong">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 offset-3">
+                        <div class="form-group">
+                            <label>Lý do</label><br>
+                            <input style="width: 65%; height: 38px; border: 1px solid #f2f2f2" type="text"
+                              name="lyDo">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 offset-2 text-center">
+                        <button class="btn submit-btn" type="submit" value="Lưu"
+                            style="background-color: #009efb; color: white; border-radius: 20px"><i class="fa fa-plus"></i>
+                            Báo hỏng</button>
+                        <!-- <div class="canl" style="margin-left: 50px"><a href="http://demo.qltbyt.com/ktv/accessory/list" style="color: white; text-decoration: none;">Hủy</a></div> -->
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
+
     </div>
+@endsection
+@section('script')
 @endsection

@@ -23,7 +23,8 @@ class DonViBaoTriSeeder extends Seeder
                 'soDienThoai' => '0123456789',
                 'email' => 'tuan@gmail.com',
                 'maSoThue' =>'',
-                'ghiChu' => 'Làm việc giờ hành chính'
+                'ghiChu' => 'Làm việc giờ hành chính',
+                'tenDonViBaoTri' =>'Đơn vị bảo trì 1'
             ]
         ]);
     }

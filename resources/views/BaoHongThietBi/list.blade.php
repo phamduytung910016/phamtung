@@ -6,31 +6,12 @@
                 <div class="col-sm-8 col-6">
                     <h4 class="page-title">Danh sách thiết bị hỏng</h4>
                 </div>
-                <div class="col-sm-4 col-6 text-right m-b-30">
-                    <a href="{{ route('getThemThietBiHong') }}" class="btn btn-primary btn-rounded float-right"><i
-                            class="fa fa-plus"></i>Thêm thiết bị
-                        hỏng</a>
-                </div>
             </div>
             @if (session('thongbao'))
                 <div class="alert alert-success" role="alert">
                     {{ session('thongbao') }}
                 </div>
             @endif
-
-            <form action="/admin/thietbihong/search" method="GET">
-                @csrf
-                <div class="row">
-                    <div class="col-sm-4 col-3">
-                        <input class="form-control" style=" border-radius: 10px;" type="text" name="searchThietBiHong"
-                            placeholder="Tên thiết bị hoặc Model hoặc Serial hoặc Mã thiết bị">
-                    </div>
-                    <div class="col-sm-1 col-1 text-right m-b-20">
-                        <button class="btn btn-rounded float-right" type="submit"
-                            style="color: white; background-color: #009efb"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
             @if (session('add'))
                 <div class="alert alert-success alert-dismissible" style="width:50%;align-item:center">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -64,61 +45,46 @@
                                 <thead>
                                     <tr>
                                         <th>Tên thiết bị</th>
-                                        <th>Người dùng</th>
-                                        <th>Ngày báo hỏng</th>
                                         <th>Mã thiết bị</th>
-                                        <th>Model</th>
-                                        <th>Serial</th>
-                                        <th>Ghi chú</th>
-                                        <th>Trạng thái</th>
-                                        <th>Action</th>
+                                        <th>Ngày báo hỏng</th>
+                                        <th>Lý do</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @if (isset($data))
                                         @foreach ($data as $item)
                                             <tr>
-                                                <td>{{ $item->tenThietBi }}</td>
-                                                <td>{{ $item->tenNguoiDung }}</td>
-                                                <td>{{ $item->created_at }}</td>
-                                                <td>{{ $item->maThietBi }}</td>
-                                                <td>{{ $item->model }}</td>
-                                                <td>{{ $item->serial }}</td>
-                                                <td>{{ $item->ghiChu }}</td>
-                                                <td>{{ $item->trangThai }}</td>
+                                                <td>{{ $item->ThietBiHong->tenThietBi }}</td>
+                                                <td>{{ $item->ThietBiHong->maThietBi }}</td>
+                                                <td>{{ $item->ngayBaoHong }}</td>
+                                                <td>{{ $item->lyDo }}</td>
                                                 <td>
                                                     <a onclick="return confirm('Bạn có chắc chắn xóa?')"
-                                                        href="/admin/thietbihong/delete/{{ $item->id }}"><i
-                                                            class="fa fa-trash" style="font-size: 15px;" title="Xóa"
-                                                            aria-hidden="true"></i></a>
-                                                    <a href="/admin/thietbihong/get-edit/{{ $item->id }}"><i
-                                                            class="fa fa-edit" style="font-size: 15px;" title="Chỉnh sửa"
-                                                            aria-hidden="true"></i></a>
+                                                        href="/admin/baohong/delete/{{ $item->id }}"><i
+                                                        class="fa fa-trash" style="font-size: 15px;" title="Xóa"
+                                                        aria-hidden="true"></i></a>
+                                                    <a href="/admin/suachua/getAdd/{{ $item->id }}"><i
+                                                        class="fa fa-edit" style="font-size: 15px;" title="Tạo lịch sửa chữa"
+                                                        aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
-                                    @endif
-                                </tbody>
-                                <tbody>
-                                    @if (isset($searchs))
-                                        @foreach ($searchs as $rs)
-                                            <tr>
-                                                <td>{{ $rs->tenThietBi }}</td>
-                                                <td>{{ $rs->tenNguoiDung }}</td>
-                                                <td>{{ $rs->created_at }}</td>
-                                                <td>{{ $rs->maThietBi }}</td>
-                                                <td>{{ $rs->model }}</td>
-                                                <td>{{ $rs->serial }}</td>
-                                                <td>{{ $rs->ghiChu }}</td>
-                                                <td>{{ $rs->trangThai }}</td>
+                                    @elseif (isset($rs))
+                                        @foreach ($data as $item)
+                                        <tr>
+                                                <td>{{ $item->ThietBiHong->tenThietBi }}</td>
+                                                <td>{{ $item->ThietBiHong->maThietBi }}</td>
+                                                <td>{{ $item->ngayBaoHong }}</td>
+                                                <td>{{ $item->lyDo }}</td>
                                                 <td>
                                                     <a onclick="return confirm('Bạn có chắc chắn xóa?')"
-                                                        href="/admin/thietbihong/delete/{{ $rs->id }}"><i
-                                                            class="fa fa-trash" style="font-size: 15px;" title="Xóa"
-                                                            aria-hidden="true"></i></a>
-                                                    <a href="/admin/thietbihong/get-edit/{{ $rs->id }}"><i
-                                                            class="fa fa-edit" style="font-size: 15px;" title="Chỉnh sửa"
-                                                            aria-hidden="true"></i></a>
+                                                        href="/admin/baohong/delete/{{ $item->id }}"><i
+                                                        class="fa fa-trash" style="font-size: 15px;" title="Xóa"
+                                                        aria-hidden="true"></i></a>
+                                                    <a href="/admin/suachua/getAdd/{{ $item->id }}"><i
+                                                        class="fa fa-edit" style="font-size: 15px;" title="Tạo lịch sửa chữa"
+                                                        aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

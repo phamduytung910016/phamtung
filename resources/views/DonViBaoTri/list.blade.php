@@ -64,7 +64,7 @@
             <table class="table table-condensed table-bordered table-hover text-center">
                 <thead style="background-color: #009efb; color: white;">
                     <tr>
-
+                        <th>Tên đơn vị bảo trì</th>
                         <th>Nhà cung cấp</th>
                         <th>Địa chỉ</th>
                         <th>Đại diện</th>
@@ -79,6 +79,7 @@
                         @foreach ($data as $item)
                             <tr>
 
+                                <td>{{$item->tenDonViBaoTri}}</td>
                                 <td>{{ $item->nhaCungCap->tenNhaCungCap }}</td>
                                 <td>{{ $item->diaChi }}</td>
                                 <td>{{ $item->nguoiDaiDien }}</td>
@@ -101,6 +102,7 @@
                         @foreach ($search as $result)
                             <tr>
 
+                                <td>{{$result->tenDonViBaoTri}}</td>
                                 <td>{{ $result->nhaCungCap->tenNhaCungCap }}</td>
                                 <td>{{ $result->diaChi }}</td>
                                 <td>{{ $result->nguoiDaiDien }}</td>

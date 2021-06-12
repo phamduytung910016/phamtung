@@ -31,11 +31,11 @@ class ThietBiRequest extends FormRequest
             'maNhomThietBi' => 'required',
             'donViTinh' => 'required',
             'soLuong' => 'required',
-            'canBoVatTuPhuTrach' => 'required',
             'hangSanXuat' => 'required',
             'xuatXu' => 'required',
             'namSanXuat' => 'required',
-            'kiemDinhDinhKy' => 'required'
+            'kiemDinhDinhKy' => 'required',
+            'maThietBi' =>'required|unique:thietbi,maThietBi'
         ];
     }
 
@@ -51,11 +51,12 @@ class ThietBiRequest extends FormRequest
             'maNhomThietBi.required' => 'Bạn chưa chọn nhóm thiết bị',
             'donViTinh.required' => 'Bạn chưa chọn đơn vị tính',
             'soLuong.required' => 'Bạn chưa chọn số lượng',
-            'canBoVatTuPhuTrach.required' => 'Bạn chưa điền thông tin người phụ trách',
             'hangSanXuat.required' => 'Bạn chưa điền hãng sản xuất',
             'xuatXu.required' => 'Bạn chưa điền xuất xứ',
             'namSanXuat.required' => 'Bạn chưa điền năm sản xuất',
-            'kiemDinhDinhKy.required' => 'Bạn chưa chọn thời gian kiểm định'
+            'kiemDinhDinhKy.required' => 'Bạn chưa chọn thời gian kiểm định',
+            'maThietBi.required' =>'Bạn chưa điền mã thiết bị',
+            'maThietBi.unique' =>'Mã thiết bị đã tồn tại'
         ];
     }
 }

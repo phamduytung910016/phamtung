@@ -9,7 +9,7 @@ class DonViBaoTriModel extends Model
 {
     use HasFactory;
     protected $table = "donvibaotri";
-    protected $fillable = ['nhaCungCap_id', 'diaChi', 'nguoiDaiDien', 'soDienThoai', 'email', 'maSoThue', 'ghiChu'];
+    protected $fillable = ['nhaCungCap_id', 'diaChi', 'nguoiDaiDien', 'soDienThoai', 'email', 'maSoThue', 'ghiChu','tenDonViBaoTri'];
 
     public function nhaCungCap()
     {

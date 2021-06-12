@@ -20,7 +20,7 @@ class CreateUserTable extends Migration
             $table->string('password');
             $table->string('soDienThoai')->nullable();
             $table->tinyInteger('phanQuyen');
-            $table->string('maNguoiDung', 10)->nullable();
+            $table->string('maNguoiDung');
             $table->string('diaChi')->nullable();
             $table->integer('khoaPhong_id')->nullable();
             $table->rememberToken();

@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\BaoHongController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ThietBiController;
@@ -17,8 +19,10 @@ use App\Http\Controllers\NhaCungCapController;
 use App\Http\Controllers\DonViBaoTriController;
 use App\Http\Controllers\LoaiThietBiController;
 use App\Http\Controllers\NhomThietBiController;
+use App\Http\Controllers\SuaChuaController;
 use App\Http\Controllers\ThietBiHongController;
 use App\Http\Controllers\VatTuKemTheoController;
+use App\Models\ThietBiModel;
 
 /*
 |--------------------------------------------------------------------------
@@ -126,7 +130,7 @@ Route::middleware('AdminLogInMiddle')->group(function () {
             Route::post('/post-edit/{id}', [LoaiThietBiController::class, 'postEdit']);
         });
 
-
+        //Quản lý thiết bị
         Route::prefix('thietbi')->group(function () {
             Route::get('/listAll', [ThietBiController::class, 'listAll'])->name('list_thiet_bi_all');
             Route::get('/listChuaBanGiao', [ThietBiController::class, 'listChuaBanGiao'])->name('list_thiet_bi_chua_ban_gia');
@@ -135,12 +139,46 @@ Route::middleware('AdminLogInMiddle')->group(function () {
             Route::get('/listDangSuaChua', [ThietBiController::class, 'listDangSuaChua'])->name('list_thiet_bi_dang_sua_chua');
             Route::get('/listNgungSuDung', [ThietBiController::class, 'listNgungSuDung'])->name('list_thiet_bi_ngung_su_dung');
             Route::get('/listThanhLy', [ThietBiController::class, 'listThanhLy'])->name('list_thiet_bi_thanh_ly');
-            Route::get('/search', [ThietBiController::class, 'search'])->name('search_thiet_bi');
+            Route::get('/searchAll', [ThietBiController::class, 'searchAll']);
+            Route::get('/searchChuaBanGiao', [ThietBiController::class, 'searchChuaBanGiao']);
+            Route::get('/searchDangSuDung', [ThietBiController::class, 'searchDangSuDung']);
+            Route::get('/searchBaoHong', [ThietBiController::class, 'searchBaoHong']);
+            Route::get('/searchDangSuaChua', [ThietBiController::class, 'searchDangSuaChua']);
+            Route::get('/searchNgungSuDung', [ThietBiController::class, 'searchNgungSuDung']);
+            Route::get('/searchThanhLy', [ThietBiController::class, 'searchThanhLy']);
             Route::get('/getAdd', [ThietBiController::class, 'getAdd'])->name('get_them_thiet_bi');
             Route::post('/postAdd', [ThietBiController::class, 'postAdd'])->name('post_them_thiet_bi');
             Route::get('/delete/{id}', [ThietBiController::class, 'delete']);
             Route::get('/get-edit/{id}', [ThietBiController::class, 'getEdit']);
             Route::post('/post-edit/{id}', [ThietBiController::class, 'postEdit']);
+            Route::get('/getBanGiao/{id}', [ThietBiController::class, 'getBanGiao']);
+            Route::post('/postBanGiao/{id}', [ThietBiController::class, 'postBanGiao']);
+            Route::get('/thanhly/{id}',[ThietBiController::class,'thanhLy']);
+            Route::get('/hoSo/{id}', [ThietBiController::class,'getHoSo']);
+        });
+
+        Route::prefix('suachua')->group(function () {
+            Route::get('/list', [SuaChuaController::class,'index'])->name('list_dang_sua_chua');
+            Route::get('/getAdd/{id}', [SuaChuaController::class, 'getAdd']);
+            Route::post('/postAdd/{id}', [SuaChuaController::class, 'postAdd']);
+            Route::get('/getEdit/{id}', [SuaChuaController::class,'getEdit']);
+            Route::post('/postEdit/{id}', [SuaChuaController::class,'postEdit']);
+            Route::get('/getBanGiao/{id}', [SuaChuaController::class,'getBanGiao']);
+            Route::post('/postBanGiao/{id}', [SuaChuaController::class,'postBanGiao']);
+        });
+
+        Route::prefix('baohong')->group(function () {
+            Route::get('/getAdd/{id}', [BaoHongController::class, 'getAdd']);
+            Route::post('/postAdd/{id}', [BaoHongController::class, 'postAdd']);
+            Route::get('/list', [BaoHongController::class, 'index'])->name('list_bao_hong');
+            Route::get('/delete/{id}', [BaoHongController::class, 'delete']);
+        });
+
+
+        Route::prefix('ajax')->group(function () {
+            Route::get('/loaiThietBi/{idNhomThietBi}', [AjaxController::class, 'getLoaiThietBi']);
+            Route::get('/donViBaoTri/{idNhaCungCap}', [AjaxController::class, 'getDonViBaoTri']);
+            Route::get('/user/{idKhoaPhong}', [AjaxController::class, 'getUser']);
         });
     });
 });
@@ -149,5 +187,7 @@ Route::middleware('AdminLogInMiddle')->group(function () {
 // Route::get('/demo', [BrandController::class, 'index']);
 // Route::post('/demo1', [BrandController::class, 'add']);
 
-Route::get('/test',[VatTuKemTheoController::class , 'index']);
- Route::get('/test1', [ThietBiController::class , 'index']);
+Route::get('/test', function () {
+    return view('BaoHongThietBi.list');
+});
+Route::get('/test1', [ThietBiController::class, 'index']);

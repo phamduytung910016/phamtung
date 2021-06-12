@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+
     <!--[if lt IE 9]>
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
@@ -131,15 +132,6 @@
                     <ul>
                         <li class="menu-title">Main</li>
 
-                        <li>
-                            <a href="{{route('khoaphong')}}"><i class="fa fa-hospital-o"></i> <span>Khoa phòng</span></a>
-                        </li>
-                        <li>
-                            <a href="{{route('nguoidung')}}"><i class="fa fa-user-md"></i> <span>Người dùng</span></a>
-                        </li>
-                        <li>
-                            <a href="{{route('listhietbihong')}}"><i class="fa fa-flag-o"></i> <span>Báo hỏng</span></a>
-                        </li>
                         <li class="submenu">
                             <a href=""><i class="fa fa-delicious"></i> <span>Quản lý thiết bị</span></a>
                             <ul style="display:none;">
@@ -149,6 +141,22 @@
 
                             </ul>
                         </li>
+                        <li class="submenu">
+                            <a href=""><i class="fa fa-wrench"></i> <span>Sửa chữa thiết bị</span></a>
+                            <ul style="display:none;">
+                                <li><a href="{{route('list_bao_hong')}}">Danh sách thiết bị báo hỏng</a></li>
+                                <li><a href="{{route('list_dang_sua_chua')}}">Danh sách thiết bị đang sửa chữa</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="{{route('khoaphong')}}"><i class="fa fa-hospital-o"></i> <span>Khoa phòng</span></a>
+                        </li>
+                        <li>
+                            <a href="{{route('nguoidung')}}"><i class="fa fa-user-md"></i> <span>Người dùng</span></a>
+                        </li>
+
+
                         <li class="submenu">
 							<a href=""><i class="fa fa-university"></i> <span> Nhà cung cấp  </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
@@ -171,8 +179,7 @@
     <script src="{{asset('assets/js/chart.js')}}"></script>
     <script src="{{asset('assets/js/app.js')}}"></script>
 
+    @yield('script')
 </body>
-
-
 
 </html>

@@ -27,6 +27,12 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
+                                        <label>Tên đơn vị bảo trì<span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text" name="diaChi" autocomplete="off" value="{{$donViBaoTri->tenDonViBaoTri}}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
                                         <label>Địa chỉ<span class="text-danger">*</span></label>
                                         <input class="form-control" type="text" name="diaChi" autocomplete="off" value="{{$donViBaoTri->diaChi}}">
                                     </div>

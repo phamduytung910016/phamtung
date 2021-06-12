@@ -28,6 +28,15 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
+                                        <label>Tên đơn vị bảo trì<span class="text-danger">*</span></label>
+                                        @error('tenDonViBaoTri')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        <input class="form-control" type="text" name="tenDonViBaoTri" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
                                         <label>Địa chỉ<span class="text-danger">*</span></label>
                                         @error('diaChi')
                                             <span class="text-danger">{{ $message }}</span>
@@ -35,6 +44,7 @@
                                         <input class="form-control" type="text" name="diaChi" autocomplete="off">
                                     </div>
                                 </div>
+
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Người đại diện<span class="text-danger">*</span></label>

@@ -70,7 +70,7 @@ class LoaiThietBiController extends Controller
                 ->orWhere('maLoaiThietBi', 'like', '%' . $request->dataSearch . '%')->get();
         } else {
             $result = $this->loaiThietBi->where('tenLoaiThietBi', 'like', '%' . $request->dataSearch . '%')
-                ->orWhere('maLoaiThietBi', 'like', '%' . $request->dataSearch . '%')
+                ->Where('maLoaiThietBi', 'like', '%' . $request->dataSearch . '%')
                 ->where('manhomThietBi', 'like', '%' . $request->searchThietBiHong . '%')->get();
         }
         $nhomThietBis = $this->nhomThietBi->all();

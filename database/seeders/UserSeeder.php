@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
                 'soDienThoai' => '0699699999',
                 'phanQuyen' => 1,
                 'khoaPhong_id' => '1',
-                'maNguoiDung' => '20182876',
+                'maNguoiDung' => 20182876,
                 'diaChi' => '4a/ngách 14/Dương Quảng Hàm/Phường Quan Hoa/Quận Cầu Giấy'
             ],
             [
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
                 'soDienThoai' => '0699699999',
                 'phanQuyen' => 3,
                 'khoaPhong_id' => '2',
-                'maNguoiDung' => ' 20197087',
+                'maNguoiDung' => 20197087,
                 'diaChi' => '4a/ngách 14/Dương Quảng Hàm/Phường Quan Hoa/Quận Cầu Giấy'
             ]
         ]);

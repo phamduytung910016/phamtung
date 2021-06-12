@@ -15,6 +15,7 @@ class CreateDonViBaoTriTable extends Migration
     {
         Schema::create('DonviBaoTri', function (Blueprint $table) {
             $table->id();
+            $table->string('tenDonViBaoTri');
             $table->integer('nhaCungCap_id');
             $table->string('diaChi');
             $table->string('nguoiDaiDien');
